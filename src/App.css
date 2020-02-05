@@ -23,6 +23,7 @@
 }
 
 .Input-Wrap{
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   width: 80%; 
   display: flex;
 }

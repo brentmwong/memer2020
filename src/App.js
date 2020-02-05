@@ -4,6 +4,7 @@ import './media.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { LinearProgress } from '@material-ui/core';
+import {FiSearch} from 'react-icons/fi';
 
 function App() {
   const [text, setText] = useState('')
@@ -20,42 +21,49 @@ async function getMemes(){
   const r = await fetch(baseurl)
   const body = await r.json()
   setMemes(body.data)
-  setText('') 
+  // setText('') 
   setLoading(false)
 }
 
   return (
     <div className="App">
-      <header className="App-header">
-        <div className='Input-Wrap'>
-          <TextField fullWidth variant="outlined" 
-            label="Search for memes" 
-            value = {text} 
-            onChange={e=> setText(e.target.value)}
-            onKeyPress={e=> {
-              if(e.key==="Enter") getMemes() 
-            }}
-          />
-          <Button variant="contained" color="primary"
-            onClick={getMemes}
-          >
-            Search
-          </Button>
-        </div>
-        {loading && <LinearProgress />} 
-      </header>
-      
-      <div className='Memes'>
-        {memes.map((meme, i)=> <Meme key={i} {...meme}/>)}
-      </div>
+      <div className='body'>
+        <header className="App-header">
+          <div className='Input-Wrap'>
+            <TextField fullWidth variant="outlined" 
+              label="Search for memes" 
+              value = {text} 
+              onChange={e=> setText(e.target.value)}
+              onKeyPress={e=> {
+                if(e.key==="Enter") getMemes() 
+              }}
+            />
+            <Button variant="contained" color="primary"
+              onClick={getMemes}
+            >
+              <FiSearch style={{width:'2rem', height: '2rem'}}/> Search
+            </Button>
+          </div> 
+        </header>
+        {loading && <LinearProgress />}
 
-    </div>
+        <div className='side-bar'>
+            <p className='headline'>Results for</p>
+            <p className='query'>{text}</p>
+          </div>
+        
+        <div className='Memes'>
+          {memes.map((meme, i)=> <Meme key={i} {...meme}/>)}
+        </div>
+      </div>
+  </div>
   );
 }
 
 function Meme({title, images}){
+  const url = images.fixed_height.url
   return <div className='meme'>
-    <img src={images.fixed_height.url} alt='meme'/>
+    <img src={images.fixed_height.url} onClick={()=>window.open(url, '_blank')} alt='meme'/>
     <div className='meme-title'>{title}</div>
   </div>
 }

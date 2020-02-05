@@ -2,14 +2,87 @@ html{
     font-size: 12px;
 }
 
+.headline{
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgb(187, 187, 187);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    }
+
+    .query{
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    margin: 0rem 2rem 1rem 2rem;
+    font-size: 2rem;
+    font-weight: 900;
+    color: rgb(29, 29, 29);
+    margin-bottom: 20px;
+    }
+
+
 @media only screen and (min-width: 600px){
     html{
         font-size: 15px;
     }
+
+    .headline{
+        font-size: 1rem;
+        font-weight: 700;
+        color: rgb(187, 187, 187);
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+      }
+      
+      .query{
+        font-family: 'Roboto', Arial, Helvetica, sans-serif;
+        margin: 0rem 2rem 1rem 2rem;
+        font-size: 2rem;
+        font-weight: 900;
+        color: rgb(29, 29, 29);
+        margin-bottom: 20px;
+      }
 }
 
 @media only screen and (min-width: 768px){
     html{
         font-size: 17px;
     }
+
+    .body{
+        margin-left: 20%;
+      }
+
+    .side-bar{
+        height: 100%;
+        width: 20%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color:rgb(240, 240, 240);
+        overflow-x: hidden;
+      }
+      
+      .headline{
+        font-size: 1rem;
+        font-weight: 700;
+        color: rgb(187, 187, 187);
+        display: flex;
+        justify-content: left;
+        margin: 2.5rem 2rem .5rem 2rem;
+      }
+      
+      .query{
+        font-family: 'Roboto', Arial, Helvetica, sans-serif;
+        margin: 0rem 2rem 1rem 2rem;
+        font-size: 2rem;
+        font-weight: 900;
+        color: rgb(29, 29, 29);
+        display: flex;
+        justify-content: left;
+        text-align: left;
+      }
+
 }
