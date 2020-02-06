@@ -60,11 +60,12 @@ async function getMemes(){
   );
 }
 
-function Meme({title, images}){
-  const url = images.fixed_height.url
-  return <div className='meme'>
-    <img src={images.fixed_height.url} onClick={()=>window.open(url, '_blank')} alt='meme'/>
-    <div className='meme-title'>{title}</div>
+function Meme({images, title}){
+  return <div className="meme">
+    <a href={images.fixed_height.url} target="_open">
+      <img src={images.fixed_height.url} alt="meme" />
+    </a>
+    <div className="meme-title">{title}</div>
   </div>
 }
 
